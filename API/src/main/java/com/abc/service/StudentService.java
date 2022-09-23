@@ -37,11 +37,11 @@ public class StudentService {
 		return studentRepository.save(student1);
 	} 
 
-	public boolean deletStudent(Integer studentId) {
+	public String deletStudent(Integer studentId) {
 
 		this.studentRepository.deleteById(studentId);
 
-		return true;
+		return "Deleted Successfully";
 	}
 
 	

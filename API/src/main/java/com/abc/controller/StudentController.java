@@ -25,7 +25,7 @@ public class StudentController {
 	{
 		return studentService.saveStudent(student);
 	}
-
+ 
 	@GetMapping("/get")
 	public List<Student> findAllStudent()
 	{
@@ -49,7 +49,7 @@ public class StudentController {
 		return studentService.updateStudent(student,id);
 	}
 	@DeleteMapping("/Delete")
-	public boolean deletStudent(@RequestBody Student student)
+	public String deletStudent(@RequestBody Student student)
 	{
 		return studentService.deletStudent(student.getStudentId());
 		
