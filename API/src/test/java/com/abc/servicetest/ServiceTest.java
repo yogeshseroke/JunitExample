@@ -19,6 +19,8 @@ import com.abc.service.StudentService;
 public class ServiceTest {
 	
 	Student student2;
+	String studentName;
+	String student12 = "Deleted Successfully";
 	List<Student> list;
 	Integer studentId;
 
@@ -74,12 +76,31 @@ public class ServiceTest {
 	}
 	@Test
 	void deletStudent_Test() {
-		Student student1 = new Student();
-		student1.setStudentName("abhishak");
-		student1.setStudentId(12);
-		student2 = studentService.saveStudent(student1);
-		assertEquals(student1.toString(), student2);
+		when(repo.findByStudentName(studentName)).thenReturn(list, null);
+		String id = studentService.deletStudent(studentId);
+		assertEquals(id, student12);
 	}
+	@Test
+	void getById_Test() {
+		Student stu = new Student();
+		stu.setStudentId(12);
+		stu.setStudentName("Abhishek");
+		when(repo.findById(studentId)).thenReturn(Optional.of(stu));
+		Student id = studentService.getById(studentId);
+		assertEquals(id, stu);  
+	}
+//	@Test
+//	void getByName_Test() {
+//		List<Student> stu = new ArrayList();
+//		
+//		String s="abhishak";
+//		Object student = s;
+//
+//		when(repo.findByStudentName(studentName)).thenReturn((student.getClass().getName())).toString();
+//		List<Student> name = studentService.getByName(studentName);
+//		assertEquals(name, stu);
+//	}
+	
 	private Student getStudent() {
 		Student student = new Student();
 		student.setStudentName("abhishak");
