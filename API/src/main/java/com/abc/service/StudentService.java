@@ -22,7 +22,7 @@ public class StudentService {
 		return this.studentRepository.findAll();
 	}
 
-	public Student getById(Integer studentId) {
+	public Student getById(int studentId) { 
 		return this.studentRepository.findById(studentId).orElse(null);
 	}
 	public List<Student> getByName(String studentName) {
@@ -37,11 +37,11 @@ public class StudentService {
 		return studentRepository.save(student1);
 	} 
 
-	public String deletStudent(Integer studentId) {
+	public int deletStudent(Integer studentId) {
 
 		this.studentRepository.deleteById(studentId);
 
-		return "Deleted Successfully";
+		return studentId;
 	}
 
 	

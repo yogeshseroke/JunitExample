@@ -77,11 +77,11 @@ public class ServiceTest {
 	@Test
 	void deletStudent_Test() {
 		when(repo.findByStudentName(studentName)).thenReturn(list, null);
-		String id = studentService.deletStudent(studentId);
-		assertEquals(id, student12);
-	}
+		Integer id = studentService.deletStudent(studentId);
+		assertEquals(id.toString(), studentId.toString());
+	}  
 	@Test
-	void getById_Test() {
+	void getById_Test() { 
 		Student stu = new Student();
 		stu.setStudentId(12);
 		stu.setStudentName("Abhishek");

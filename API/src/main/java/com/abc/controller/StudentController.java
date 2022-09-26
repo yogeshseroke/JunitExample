@@ -25,10 +25,10 @@ public class StudentController {
 	{
 		return studentService.saveStudent(student);
 	}
- 
+  
 	@GetMapping("/get")
 	public List<Student> findAllStudent()
-	{
+	{ 
 		return studentService.getStudent();
 	}
 	@GetMapping("/getbyid/{studentId}")
@@ -49,9 +49,9 @@ public class StudentController {
 		return studentService.updateStudent(student,id);
 	}
 	@DeleteMapping("/Delete")
-	public String deletStudent(@RequestBody Student student)
+	public int deletStudent(@PathVariable int id)
 	{
-		return studentService.deletStudent(student.getStudentId());
-		
+	int studentid= studentService.deletStudent(id);
+		 return studentid;
 	}
 }
